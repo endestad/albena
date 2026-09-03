@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Tries to turn Pages on automatically. If this step fails with
+      # "Resource not accessible by integration", Pages must be enabled once
+      # by hand: Settings -> Pages -> Source: GitHub Actions.
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -36,3 +39,23 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Fetches the published URL with a plain, unauthenticated curl, so a
+      # green run proves the page is publicly reachable without any login.
+      - name: Verify the public URL works without login
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          echo "Checking $PAGE_URL anonymously (no credentials sent)"
+          for attempt in 1 2 3 4 5 6 7 8; do
+            code=$(curl -sSL -o page.html -w '%{http_code}' --max-time 20 "$PAGE_URL" || echo 000)
+            echo "attempt $attempt: HTTP $code"
+            if [ "$code" = "200" ] && grep -q 'Balchik i dag' page.html; then
+              echo "OK: $PAGE_URL is public and serves the itinerary."
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "FAILED: $PAGE_URL did not serve the page anonymously."
+          head -c 500 page.html || true
+          exit 1
