@@ -52,6 +52,12 @@ jobs:
             echo "attempt $attempt: HTTP $code"
             if [ "$code" = "200" ] && grep -q 'Balchik i dag' page.html; then
               echo "OK: $PAGE_URL is public and serves the itinerary."
+              # The photo is the one external asset the page needs; check it too.
+              for asset in assets/familien.webp assets/familien.png; do
+                acode=$(curl -sSL -o /dev/null -w '%{http_code}' --max-time 20 "$PAGE_URL$asset" || echo 000)
+                echo "  $asset -> HTTP $acode"
+                [ "$acode" = "200" ] || { echo "FAILED: $asset not served."; exit 1; }
+              done
               exit 0
             fi
             sleep 15
