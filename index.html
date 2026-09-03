@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0e6e78">
 <meta name="description" content="Dagsplan for familieturen fra Albena til Balchik. Oppmøte i resepsjonen kl. 13:00.">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, noimageindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Balchik i dag – Familietur fra Albena">
+<meta property="og:description" content="Oppmøte i resepsjonen kl. 13:00. Palace &amp; botanisk hage, gamle sentrum, promenaden og middag på NEMO.">
+<meta property="og:image" content="https://endestad.github.io/albena/assets/familien.png">
+<meta name="twitter:card" content="summary_large_image">
 <title>Balchik i dag – Familietur fra Albena</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
 <style>
@@ -84,6 +89,18 @@
   }
   .alert .where{font-size:1.1rem;font-weight:700;margin:0}
   .alert .note{margin:8px 0 0;font-size:.94rem;opacity:.95}
+
+  /* ---------- Family photo ---------- */
+  .family{
+    margin:0 0 26px;padding:6px 6px 0;
+    background:linear-gradient(170deg,#e9f6f7 0%,#fdf1de 100%);
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    overflow:hidden;text-align:center;
+  }
+  .family img{display:block;width:100%;height:auto;margin:0 auto -4px}
+  .family figcaption{
+    padding:12px 14px 14px;font-size:.88rem;font-weight:600;color:var(--ink-soft);
+  }
 
   /* ---------- Route strip ---------- */
   .route{
@@ -206,6 +223,7 @@
     header.hero::after{background:var(--sand)}
     .card,.route,.practical{border-color:#243539}
     .route .stop{background:#1d3238;color:#a9e6ec;border-color:#2b464d}
+    .family{background:linear-gradient(170deg,#1b2f34 0%,#2a2418 100%)}
     .tip{background:#2a2418;border-color:#453a24;color:#e3d3ae}
     .tip b{color:#f4e3bd}
     .item::before{box-shadow:0 0 0 4px var(--sand)}
@@ -234,6 +252,16 @@
     <p class="where">Resepsjonen på hotellet i Albena</p>
     <p class="note">Vi drar samlet med taxi/minibuss. Møt opp i god tid.</p>
   </div>
+
+  <!-- Reisefølget -->
+  <figure class="family">
+    <picture>
+      <source srcset="assets/familien.webp" type="image/webp">
+      <img src="assets/familien.png" width="1120" height="800" decoding="async"
+           alt="Deler av reisefølget samlet rundt bordet på restaurant">
+    </picture>
+    <figcaption>Hele gjengen — klare for en ny dag ved Svartehavet <span aria-hidden="true">🌞</span></figcaption>
+  </figure>
 
   <!-- Visuell rute -->
   <nav class="route" aria-label="Dagens rute">
