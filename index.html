@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e6e78">
+<meta name="description" content="Dagsplan for familieturen fra Albena til Balchik. Oppmøte i resepsjonen kl. 13:00.">
+<meta name="robots" content="noindex">
+<title>Balchik i dag – Familietur fra Albena</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<style>
+  :root{
+    --ocean:#0e6e78;
+    --ocean-dark:#0a4d55;
+    --ocean-light:#2a9aa5;
+    --sun:#f4a259;
+    --coral:#e8615a;
+    --sand:#fdf6ec;
+    --card:#ffffff;
+    --ink:#17323a;
+    --ink-soft:#5b757e;
+    --line:#e6ded1;
+    --shadow:0 2px 14px rgba(14,110,120,.10);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.55;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 56px}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    background:linear-gradient(165deg,#0b5c66 0%,#0e6e78 45%,#2a9aa5 100%);
+    color:#fff;
+    padding:calc(38px + env(safe-area-inset-top)) 18px 74px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  header.hero::after{
+    content:"";position:absolute;left:-10%;right:-10%;bottom:-32px;height:70px;
+    background:var(--sand);border-radius:50% 50% 0 0;
+  }
+  .hero-inner{max-width:640px;margin:0 auto;position:relative;z-index:1}
+  .kicker{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:#bdf0f2;
+    background:rgba(255,255,255,.13);padding:6px 14px;border-radius:999px;
+    margin-bottom:16px;
+  }
+  h1{
+    margin:0;font-size:clamp(2.3rem,10vw,3.2rem);line-height:1.05;
+    font-weight:800;letter-spacing:-.02em;
+  }
+  .sub{margin:10px 0 0;font-size:1.06rem;color:#d6f2f4;font-weight:500}
+
+  /* ---------- Meeting alert ---------- */
+  .alert{
+    margin:-46px 0 26px;
+    position:relative;z-index:2;
+    background:linear-gradient(150deg,#e8615a 0%,#f4a259 100%);
+    color:#fff;
+    border-radius:22px;
+    padding:22px 20px;
+    box-shadow:0 10px 28px rgba(232,97,90,.32);
+    text-align:center;
+  }
+  .alert .label{
+    font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    opacity:.92;display:block;margin-bottom:6px;
+  }
+  .alert .big{
+    display:block;font-size:clamp(2.6rem,14vw,3.6rem);font-weight:800;
+    line-height:1;letter-spacing:-.03em;margin:2px 0 8px;
+    font-variant-numeric:tabular-nums;
+  }
+  .alert .where{font-size:1.1rem;font-weight:700;margin:0}
+  .alert .note{margin:8px 0 0;font-size:.94rem;opacity:.95}
+
+  /* ---------- Route strip ---------- */
+  .route{
+    background:var(--card);border-radius:var(--radius);padding:16px 16px 14px;
+    box-shadow:var(--shadow);margin-bottom:26px;
+  }
+  .route h2{margin:0 0 12px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .route ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .route li{display:flex;align-items:center;gap:6px}
+  .route .stop{
+    background:#eef7f8;color:var(--ocean-dark);border:1px solid #d5eaec;
+    padding:5px 11px;border-radius:999px;font-size:.85rem;font-weight:600;white-space:nowrap;
+  }
+  .route .stop.hi{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+  .route .arrow{color:var(--ocean-light);font-weight:700;font-size:.85rem}
+
+  /* ---------- Timeline ---------- */
+  h2.section{
+    font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .timeline{position:relative;padding-left:34px;margin:0}
+  .timeline::before{
+    content:"";position:absolute;left:11px;top:12px;bottom:14px;width:3px;
+    background:linear-gradient(180deg,var(--ocean-light),#e7d9c4);border-radius:2px;
+  }
+  .item{position:relative;margin-bottom:20px}
+  .item::before{
+    content:"";position:absolute;left:-29px;top:16px;width:13px;height:13px;
+    border-radius:50%;background:var(--card);border:3px solid var(--ocean);
+    box-shadow:0 0 0 4px var(--sand);
+  }
+  .item.final::before{background:var(--coral);border-color:var(--coral)}
+  .card{
+    background:var(--card);border-radius:var(--radius);padding:16px 17px;
+    box-shadow:var(--shadow);border:1px solid rgba(230,222,209,.7);
+  }
+  .time{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:1.02rem;font-weight:800;color:var(--ocean-dark);
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+  }
+  .time .ico{font-size:1.15rem;line-height:1}
+  .item h3{margin:5px 0 8px;font-size:1.16rem;font-weight:700;letter-spacing:-.01em}
+  .item p{margin:0 0 8px;font-size:.98rem}
+  .item p:last-child{margin-bottom:0}
+  ul.bullets{margin:8px 0 0;padding-left:20px;font-size:.98rem}
+  ul.bullets li{margin-bottom:3px}
+
+  .tip{
+    display:flex;gap:9px;align-items:flex-start;
+    background:#fff7ea;border:1px solid #f3e2c4;border-radius:13px;
+    padding:11px 13px;margin-top:12px;font-size:.92rem;color:#6b5326;
+  }
+  .tip .ico{flex:0 0 auto;font-size:1rem;line-height:1.4}
+  .tip b{color:#4d3a15}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    min-height:52px;margin-top:12px;padding:14px 18px;
+    background:var(--ocean);color:#fff;text-decoration:none;
+    border-radius:14px;font-weight:700;font-size:1rem;
+    box-shadow:0 3px 10px rgba(14,110,120,.24);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:active{transform:translateY(1px);background:var(--ocean-dark)}
+  .btn.call{background:var(--coral);box-shadow:0 3px 10px rgba(232,97,90,.26)}
+  .btn.call:active{background:#c94b45}
+  .btn .ico{font-size:1.1rem}
+
+  /* ---------- NEMO card ---------- */
+  .nemo{
+    margin-top:6px;
+    background:linear-gradient(160deg,#0b5c66 0%,#12798a 100%);
+    color:#fff;border-radius:22px;padding:22px 20px;
+    box-shadow:0 8px 24px rgba(11,92,102,.3);
+  }
+  .nemo .time{color:#a9e6ec}
+  .nemo h3{margin:6px 0 4px;font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+  .nemo .tagline{margin:0 0 10px;font-size:.92rem;color:#bfe9ed;font-weight:600;letter-spacing:.02em}
+  .nemo p{margin:0 0 8px;font-size:.97rem;color:#e8f7f8}
+  .nemo .addr{
+    display:flex;gap:8px;align-items:flex-start;
+    font-size:.92rem;color:#cdeef1;margin:12px 0 0;
+  }
+  .nemo .btn{background:#fff;color:var(--ocean-dark);box-shadow:0 3px 12px rgba(0,0,0,.18)}
+  .nemo .btn:active{background:#e9f7f8}
+  .nemo .btn.call{background:var(--sun);color:#4a2c06}
+  .nemo .btn.call:active{background:#e08f3f}
+  .nemo .verify{margin:12px 0 0;font-size:.82rem;color:#a9d6da;line-height:1.45}
+
+  /* ---------- Practical ---------- */
+  .practical{
+    background:var(--card);border-radius:var(--radius);padding:18px 18px 16px;
+    box-shadow:var(--shadow);border:1px solid rgba(230,222,209,.7);
+  }
+  .practical h2{margin:0 0 14px;font-size:1.18rem;font-weight:700;display:flex;align-items:center;gap:9px}
+  .checks{list-style:none;margin:0;padding:0}
+  .checks li{
+    display:flex;gap:11px;align-items:flex-start;
+    padding:10px 0;border-top:1px solid var(--line);font-size:.98rem;
+  }
+  .checks li:first-child{border-top:0;padding-top:0}
+  .checks .ico{flex:0 0 26px;font-size:1.2rem;line-height:1.35;text-align:center}
+  .checks b{display:block;font-weight:700}
+  .checks span.d{color:var(--ink-soft);font-size:.9rem}
+
+  footer{
+    text-align:center;margin-top:30px;font-size:.85rem;color:var(--ink-soft);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  footer .wave{font-size:1.2rem;display:block;margin-bottom:6px}
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --sand:#101c20;--card:#17272c;--ink:#e8f1f2;--ink-soft:#9ab3b8;
+      --line:#26383e;--shadow:0 2px 14px rgba(0,0,0,.35);
+    }
+    header.hero::after{background:var(--sand)}
+    .card,.route,.practical{border-color:#243539}
+    .route .stop{background:#1d3238;color:#a9e6ec;border-color:#2b464d}
+    .tip{background:#2a2418;border-color:#453a24;color:#e3d3ae}
+    .tip b{color:#f4e3bd}
+    .item::before{box-shadow:0 0 0 4px var(--sand)}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .btn{transition:background .15s ease,transform .08s ease}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="kicker">Dagsplan</span>
+    <h1>Balchik i dag</h1>
+    <p class="sub">Familietur fra Albena</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- Dagens viktigste beskjed -->
+  <div class="alert">
+    <span class="label">Oppmøte</span>
+    <span class="big">13:00</span>
+    <p class="where">Resepsjonen på hotellet i Albena</p>
+    <p class="note">Vi drar samlet med taxi/minibuss. Møt opp i god tid.</p>
+  </div>
+
+  <!-- Visuell rute -->
+  <nav class="route" aria-label="Dagens rute">
+    <h2>Dagens rute</h2>
+    <ol>
+      <li><span class="stop hi">Albena</span><span class="arrow" aria-hidden="true">→</span></li>
+      <li><span class="stop">Palace &amp; hage</span><span class="arrow" aria-hidden="true">→</span></li>
+      <li><span class="stop">Gamle sentrum</span><span class="arrow" aria-hidden="true">→</span></li>
+      <li><span class="stop">Promenaden</span><span class="arrow" aria-hidden="true">→</span></li>
+      <li><span class="stop">NEMO</span><span class="arrow" aria-hidden="true">→</span></li>
+      <li><span class="stop hi">Albena</span></li>
+    </ol>
+  </nav>
+
+  <h2 class="section">Program</h2>
+
+  <div class="timeline">
+
+    <!-- 13:00 -->
+    <article class="item">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🚐</span>13:00</div>
+        <h3>Oppmøte og avreise</h3>
+        <p>Oppmøte i resepsjonen på hotellet i Albena kl. 13:00.</p>
+        <p>Vi drar samlet med taxi/minibuss til Balchik.</p>
+      </div>
+    </article>
+
+    <!-- Palace -->
+    <article class="item">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🌺</span>ca. 13:20–15:15</div>
+        <h3>Balchik Palace og botanisk hage</h3>
+        <p>Rolig rusletur gjennom palassområdet og den botaniske hagen. Vi trenger ikke prøve å se absolutt alt.</p>
+        <div class="tip">
+          <span class="ico" aria-hidden="true">👶</span>
+          <span><b>Med småbarn:</b> det finnes trapper, bakker og noe ujevnt terreng. Bæresele kan være nyttig for de minste.</span>
+        </div>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Dvoreca%20Balchik%20Palace%20and%20Botanical%20Garden%2C%20Balchik" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">📍</span>Åpne i Google Maps
+        </a>
+      </div>
+    </article>
+
+    <!-- Taxi opp -->
+    <article class="item">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🚕</span>ca. 15:15</div>
+        <h3>Taxi opp til sentrum</h3>
+        <p>Kort taxitur opp til det eldre sentrum av Balchik.</p>
+        <p>Poenget er å slippe at hele gruppen må gå opp de bratte bakkene. Derfra legger vi ruten slik at mest mulig av gåingen går <b>nedover</b> mot sjøen.</p>
+      </div>
+    </article>
+
+    <!-- Sentrum -->
+    <article class="item">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🛍️</span>15:30–16:15</div>
+        <h3>Eldre sentrum og shopping</h3>
+        <p>Rolig rusling i den eldre delen av Balchik. Dette er ikke en stor, avgrenset middelalder-gamleby som Nessebar, men en eldre lokal bykjerne.</p>
+        <ul class="bullets">
+          <li>Små lokale butikker, klær og sko</li>
+          <li>Kunst, gaver og suvenirer</li>
+          <li>Kaffe eller is for de som vil sitte</li>
+        </ul>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Balchik%20town%20centre%2C%20Bulgaria" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">📍</span>Åpne i Google Maps
+        </a>
+      </div>
+    </article>
+
+    <!-- Ned mot sjøen -->
+    <article class="item">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🌊</span>ca. 16:15–17:20</div>
+        <h3>Ned mot sjøen</h3>
+        <p>Vi beveger oss nedover mot promenaden og havnen. Rolig tempo hele veien.</p>
+        <ul class="bullets">
+          <li>Sjøutsikt</li>
+          <li>Marina og havn</li>
+          <li>Kaffe og is</li>
+          <li>Småbutikker og litt mer shopping</li>
+        </ul>
+        <p style="margin-top:10px">Målet er å være i nærheten av restauranten i god tid før middag.</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Balchik%20marina%20and%20seaside%20promenade" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">📍</span>Åpne i Google Maps
+        </a>
+      </div>
+    </article>
+
+    <!-- NEMO -->
+    <article class="item">
+      <div class="nemo">
+        <div class="time"><span class="ico" aria-hidden="true">🍽️</span>17:30</div>
+        <h3>NEMO Balchik</h3>
+        <p class="tagline">Middag · sjømat ved sjøen</p>
+        <p>Dagens restaurantvalg, basert på lokal anbefaling. Sjømat og middag rett ved vannet.</p>
+        <p class="addr"><span aria-hidden="true">📍</span><span>алея Дамбата (Aleya Dambata) — promenaden ved havnen, Balchik</span></p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant%20NEMO%20Balchik" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">🗺️</span>Åpne i Google Maps
+        </a>
+        <a class="btn call" href="tel:+359890300025">
+          <span class="ico" aria-hidden="true">📞</span>Ring +359 890 300 025
+        </a>
+        <p class="verify">Telefonnummeret er hentet fra NEMO sin egen kontaktliste for Balchik-restauranten. Ring gjerne og bekreft bord for hele gruppen.</p>
+      </div>
+    </article>
+
+    <!-- Hjem -->
+    <article class="item final">
+      <div class="card">
+        <div class="time"><span class="ico" aria-hidden="true">🌙</span>Etter middag</div>
+        <h3>Tilbake til Albena</h3>
+        <p>Taxi/minibuss tilbake til Albena når gruppen er klar. Ingen fast sluttid — vi tar det som det passer.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Praktisk -->
+  <h2 class="section" style="margin-top:30px">Praktisk</h2>
+  <section class="practical">
+    <h2><span aria-hidden="true">🎒</span>Husk å ta med</h2>
+    <ul class="checks">
+      <li><span class="ico" aria-hidden="true">💧</span><span><b>Vann til barna</b><span class="d">Det blir en del gåing i varmen.</span></span></li>
+      <li><span class="ico" aria-hidden="true">🧴</span><span><b>Solkrem</b><span class="d">Mye av dagen er utendørs og åpent.</span></span></li>
+      <li><span class="ico" aria-hidden="true">👟</span><span><b>Gode sko</b><span class="d">Ujevnt underlag, trapper og bakker.</span></span></li>
+      <li><span class="ico" aria-hidden="true">🧸</span><span><b>Bæresele kan være praktisk</b><span class="d">Enklest for de minste i palass- og hageområdet.</span></span></li>
+      <li><span class="ico" aria-hidden="true">🚼</span><span><b>Barnevogn</b><span class="d">Fungerer ikke optimalt overalt i palass-/hageområdet — trapper og smale, bratte partier.</span></span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span class="wave" aria-hidden="true">🌊</span>
+    Rolig tempo, familievennlig dag.<br>Vi ses i resepsjonen kl. 13:00.
+  </footer>
+
+</div>
+</body>
+</html>
